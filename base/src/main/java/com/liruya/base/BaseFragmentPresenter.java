@@ -3,6 +3,7 @@ package com.liruya.base;
 import android.content.Context;
 import android.support.annotation.StringRes;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 
 import java.lang.ref.WeakReference;
 
@@ -18,6 +19,13 @@ public class BaseFragmentPresenter<T extends BaseFragment> {
 
     protected Fragment getFragment() {
         return mFragment.get();
+    }
+
+    protected FragmentActivity getActivity() {
+        if (mFragment.get() != null) {
+            return mFragment.get().getActivity();
+        }
+        return null;
     }
 
     protected Context getContext() {
