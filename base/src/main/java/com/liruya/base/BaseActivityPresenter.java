@@ -23,6 +23,12 @@ public class BaseActivityPresenter<T extends BaseActivity> {
         return mActivity.get();
     }
 
+    protected void runOnUiThread(Runnable runnable) {
+        if (getActivity() != null) {
+            getActivity().runOnUiThread(runnable);
+        }
+    }
+
     protected boolean isViewExist() {
         return mActivity.get() != null;
     }

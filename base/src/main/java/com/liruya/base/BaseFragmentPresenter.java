@@ -35,6 +35,12 @@ public class BaseFragmentPresenter<T extends BaseFragment> {
         return null;
     }
 
+    protected void runOnUiThread(Runnable runnable) {
+        if (getActivity() != null) {
+            getActivity().runOnUiThread(runnable);
+        }
+    }
+
     protected boolean isViewExist() {
         return mFragment.get() != null;
     }
