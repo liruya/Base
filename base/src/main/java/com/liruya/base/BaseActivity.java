@@ -1,6 +1,5 @@
 package com.liruya.base;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
@@ -15,14 +14,8 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutRes());
 
-        Intent intent = getIntent();
-        if (intent != null) {
-            getIntentData();
-        }
         initView();
     }
-
-    protected abstract void getIntentData();
 
     protected abstract @LayoutRes int getLayoutRes();
 
